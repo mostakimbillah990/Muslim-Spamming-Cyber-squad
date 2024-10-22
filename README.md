@@ -60,5 +60,5 @@
       
    </ul>
 </body>
-<footer> Copyright &copy; MUSLIM SPAMMING CYBER SQUAD </footer>
+<footer style=color:black; background-color:red;> Copyright &copy; MUSLIM SPAMMING CYBER SQUAD </footer>
 </html>
