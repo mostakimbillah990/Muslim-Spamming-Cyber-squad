@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+
 <head>
   <title>
     MUSLIM SPAMMING CYBER SQUAD
   </title>
   <style>
-    h1 {
+    title {
     font-size: 25px;
     color: black;
     text-align: center;
