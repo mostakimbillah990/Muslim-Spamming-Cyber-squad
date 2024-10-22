@@ -1,4 +1,4 @@
-
+<html>
 <head>
   <title>
     MUSLIM SPAMMING CYBER SQUAD
@@ -47,3 +47,4 @@
   </body>
   
 </head>
+</html>
