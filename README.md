@@ -22,9 +22,14 @@
         p {
             font-family: "Arial", sans-serif;
         }
+        img {
+            width: 100%; /* সম্পূর্ণ প্রস্থ নেবে */
+            height: 10%; /* উচ্চতা স্বতঃস্ফূর্ত হবে */
+        }
     </style>
 </head>
 <body>
+     <img src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000014504.png?alt=media&token=8434f546-cfd6-4bc3-a4c0-8c7c02f7c1c4" alt="মুসলিম সাইবার স্কোয়াড">
     <marquee direction="center" behavior="scroll"> 
         ! আস্সালামুআলাইকুম! মুসলিম স্পমিং সাইবার স্কোয়াড এর অফিসিয়াল ওয়েবসাইটে আপনাকে স্বাগতম
     </marquee>
@@ -55,4 +60,5 @@
       
    </ul>
 </body>
+<footer> Copyright &copy; MUSLIM SPAMMING CYBER SQUAD </footer>
 </html>
