@@ -3,6 +3,9 @@
   <title>
     MUSLIM SPAMMING CYBER SQUAD
   </title>
+  <audio height="500px" width="500px" controls>
+<source src="https://ia802708.us.archive.org/34/items/salliala/La-Ilaha-Illallah.mp3 " typr="audio/mp3">
+</audio>
   <style>
     h1{
     font-size: 25px;
