@@ -87,7 +87,7 @@
         </div>
         <div class="menu-item">
             <img src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000016779.jpg?alt=media&token=39428d63-2ec4-4329-9462-c02f3b830722" alt="MSCS তুলস">
-            <a href="Mscstuls">MSCS তুলস</a>
+           <a href="Mscstuls" type="tex/html">
         </div>
     </div>
     <img src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000014504.png?alt=media&token=8434f546-cfd6-4bc3-a4c0-8c7c02f7c1c4" alt="মুসলিম সাইবার স্কোয়াড">
