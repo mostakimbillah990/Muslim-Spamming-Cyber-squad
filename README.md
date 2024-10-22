@@ -31,7 +31,7 @@
             color: black;
             font-family: "Arial", sans-serif;
             text-align: center; /* প্যারাগ্রাফ সেন্টার */
-            background-color:white;/* অস্বচ্ছ সাদা ব্যাকগ্রাউন্ড */
+            background-color: white; /* অস্বচ্ছ সাদা ব্যাকগ্রাউন্ড */
             padding: 10px; /* প্যাডিং */
             border-radius: 10px; /* গোলাকার প্রান্ত */
             margin: 10px 0; /* মার্জিন */
@@ -87,7 +87,7 @@
         </div>
         <div class="menu-item">
             <img src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000016779.jpg?alt=media&token=39428d63-2ec4-4329-9462-c02f3b830722" alt="MSCS তুলস">
-           <a href="Mscstuls" type="tex/html">
+            <a href="mscs_tools.html" target="_blank">MSCS তুলস</a> <!-- নতুন পেজের লিঙ্ক -->
         </div>
     </div>
     <img src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000014504.png?alt=media&token=8434f546-cfd6-4bc3-a4c0-8c7c02f7c1c4" alt="মুসলিম সাইবার স্কোয়াড">
@@ -96,8 +96,7 @@
     </marquee>
     <h2>মুসলিম স্পমিং সাইবার স্কোয়াড কি?</h2>
     <p>মুসলিম সাইবার স্কোয়াড একটি সোশ্যাল মিডিয়া এক্সপার্ট টিম। মুসলিম সাইবার স্কোয়াড ফেইসবুক, ইনস্টাগ্রাম, ওয়াটসাপ এবং অন্যান্য সোশ্যাল প্ল্যাটফর্মে সমস্যা সমাধান করে। এর মূল লক্ষ্য ধর্ম বিরোধী, নাস্তিক, এবং দেশদ্রোহী কার্যক্রম প্রতিরোধ করা।</p>
-
-   <h2>মুসলিম স্পমিং সাইবার স্কোয়াড এর সার্ভিস সমূহ</h2>
+    <h2>মুসলিম স্পমিং সাইবার স্কোয়াড এর সার্ভিস সমূহ</h2>
     <ul type="A">
         <li>ফেইসবুক একাউন্ট রিমোভ</li>
         <li>ফেইসবুক বেন একাউন্ট ব্যাক</li>
