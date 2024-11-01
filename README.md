@@ -64,15 +64,13 @@
         }
         .menu-item img {
             width: 50px; /* মেনু আইকনের প্রস্থ */
-            height: 50px; /* মেনু আইকনের উচ্চতা */
-            border-radius: 10%; /* গোলাকার প্রান্ত */
+            height: 50px;
+            border-radius: 10%;
         }
     </style>
 </head>
 <body>
-
-   <h1>MUSLIM SPAMMING CYBER SQUAD</h1>
-    <div class="menu">
+ <div class="menu">
         <div class="menu-item">
             <img src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000014504.png?alt=media&token=09a79948-5d34-4443-a105-ed6fe67e70d7" alt="ফেইসবুক গ্রুপ">
             <a href="https://facebook.com/groups/1880145909070918/" target="_blank">MSCS গ্রুপ</a>
