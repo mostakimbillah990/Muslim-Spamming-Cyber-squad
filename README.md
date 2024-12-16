@@ -16,7 +16,7 @@
             padding: 10px; /* প্যাডিং */
             border-radius: 10px; /* গোলাকার প্রান্ত */
         }
-        {
+       h2 {
             font-size: 25px;
             color: white; /* টেক্সট কালার সাদা */
             background-color: rgba(0, 0, 0, 0.7); /* অস্বচ্ছ কালো ব্যাকগ্রাউন্ড */
