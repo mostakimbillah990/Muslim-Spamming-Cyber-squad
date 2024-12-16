@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUSLIM SPAMMING CYBER SQUAD</title>
-    <style>
+<style>
         body {
             background-image: url('https://your-image-url.com'); /* ব্যাকগ্রাউন্ড ইমেজের URL এখানে দিন */
             background-size: cover; /* সম্পূর্ণ কভার করতে */
