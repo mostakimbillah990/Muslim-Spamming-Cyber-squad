@@ -1,0 +1,214 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+    overflow-y: auto;
+    max-height: 600px;
+    background-color: #333;
+    position: relative;
+    background-image: linear-gradient(135deg, transparent 10px, #333 10px), linear-gradient(225deg, transparent 10px, #333 10px);
+    background-size: 20px 20px;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -50%;
+    width: 200%;
+    height: 3px;
+    background-color: #ff0000;
+    animation: razorLineAnimation 5s linear infinite;
+}
+
+h1 {
+    color: #fff;
+}
+
+label {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+input[type="number"],
+input[type="checkbox"] {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button {
+    background-color: #1E90FF;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100px;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+button.clear-button {
+    background-color: #ff0000;
+}
+
+.password-section {
+    margin-top: 10px;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.password-box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #555;
+    animation: slideIn 0.5s ease, lineGreenAnimation 2s infinite;
+    color: #fff;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineGreenAnimation {
+    0% {
+        border: 1.5px solid #1E90FF;
+    }
+    100% {
+        border: 1px solid #ccc;
+    }
+}
+
+@keyframes razorLineAnimation {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(50%);
+    }
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    
+    <h1>MSCS Password Generator</h1>
+    
+    <label for="length">Password Length:</label>
+    <input type="number" id="length" min="4" max="32" value="12">
+    <br>
+    <label>Include:</label>
+    <input type="checkbox" id="uppercase" checked> Uppercase
+    <input type="checkbox" id="lowercase" checked> Lowercase
+    <input type="checkbox" id="numbers" checked> Numbers
+    <input type="checkbox" id="special" checked> Special Characters
+    <br>
+    <button onclick="generatePassword()">Generate Password</button>
+    <button onclick="savePasswords()">Download TXT</button>
+    <button onclick="copyPasswords()">Copy All PASSWORD </button>
+    <button onclick="clearPasswords()" class="clear-button">Clear Passwords</button>
+
+    <div id="passwordList" class="password-section"></div>
+</div>
+<script>
+    function generatePassword() {
+        const length = document.getElementById('length').value;
+        const uppercase = document.getElementById('uppercase').checked;
+        const lowercase = document.getElementById('lowercase').checked;
+        const numbers = document.getElementById('numbers').checked;
+        const special = document.getElementById('special').checked;
+
+        const charset = [];
+        if (uppercase) charset.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+        if (lowercase) charset.push('abcdefghijklmnopqrstuvwxyz');
+        if (numbers) charset.push('0123456789');
+        if (special) charset.push('!@#$%^&*()_+[]{}|;:,.<>?');
+
+        let password = '';
+        for (let i = 0; i < length; i++) {
+            const randomCharset = charset[Math.floor(Math.random() * charset.length)];
+            password += randomCharset.charAt(Math.floor(Math.random() * randomCharset.length));
+        }
+
+        const passwordList = document.getElementById('passwordList');
+        const passwordBox = document.createElement('div');
+        passwordBox.classList.add('password-box');
+        passwordBox.textContent = password;
+
+        passwordList.appendChild(passwordBox);
+
+        passwordList.scrollTop = passwordList.scrollHeight;
+    }
+
+    function savePasswords() {
+        const passwords = Array.from(document.querySelectorAll('.password-box')).map(box => box.textContent).join('\n');
+        console.log(passwords);
+
+        const blob = new Blob([passwords], {type: 'text/plain'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'passwords.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    function copyPasswords() {
+        const passwords = Array.from(document.querySelectorAll('.password-box')).map(box => box.textContent).join('\n');
+        navigator.clipboard.writeText(passwords)
+            .then(() => {
+                console.log('Passwords copied to clipboard');
+            })
+            .catch(err => {
+                console.error('Failed to copy passwords: ', err);
+            });
+    }
+
+    function clearPasswords() {
+        const passwordList = document.getElementById('passwordList');
+        passwordList.innerHTML = '';
+    }
+</script>
+</body>
+</html>
