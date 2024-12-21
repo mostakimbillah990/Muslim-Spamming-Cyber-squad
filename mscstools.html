@@ -1,64 +1,135 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Round Table Row Borders</title>
+  <title>Round Table Row Borders with Search</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
     table {
       border-collapse: separate;
       border-spacing: 15px;
       width: 100%;
     }
-   td {
+    td {
       border: 2px solid #00ff2d;
       border-radius: 15px; /* গোলাকার বর্ডার */
       padding: 10px;
       text-align: center;
-      width:50%;
-      bbackground-color:red;
+      width: 50%;
     }
-    
- button {
+    button {
       border: 2px solid #eaffff;
       border-radius: 15px; /* গোলাকার বর্ডার */
       padding: 10px;
       text-align: center;
-      width:100%;
-      
-      
+      width: 100%;
       font-size: 15px;
-      
     }
-    p { color:#0003ff;
+    p {
+      color: #0003ff;
     }
-    
     h1 {
-        color:#15ffe0;
-        tex-align: centet;
-        border-radius: 15px;
-        border: 3px solid #eaffff;
-        background-color:#ffffffdd;
+      color: #15ffe0;
+      text-align: center;
+      border-radius: 15px;
+      border: 3px solid #eaffff;
+      background-color: #ffffffdd;
+    }
+    .search-container {
+      margin: 20px auto;
+      width: 50%;
+    }
+    .search-container input {
+      width: 80%;
+      padding: 10px;
+      border: 2px solid #00ff2d;
+      border-radius: 15px;
+      font-size: 16px;
+    }
+    .search-container button {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 2px solid #00ff2d;
+      border-radius: 15px;
+      background-color: #15ffe0;
+      cursor: pointer;
     }
   </style>
-  </head>
-<body text-align="center">
-  <crntet>  <h1>MSCS TOOLS ZONE</h1> </center>
-  <table>
+</head>
+<body>
+  <h1>MSCS TOOLS ZONE</h1>
+  
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search for tools..." onkeyup="searchFunction()">
+  </div>
+  
+  <table id="toolsTable">
     <tr>
-      <td> <button onclick="window.location.href='txt.to. gile.html'"><br><font color="blue"><img  height="80" width="100%" src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000028791.png?alt=media&token=af448232-7a17-46b3-967b-66a42a211fd5"> <br><p>TXT To File Genaretor</p></button>
-    </td>
-      <td> <button onclick="window.location.href='https://upload.app/download/mscs-tools/com.imo.free/a35cde4b45eeb28aff20f8ff71662913efe4bac1613a1733e0a32123bd0d0e88'"><img width="100%" height="100%" src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000028102.png?alt=media&token=c24540db-6000-4ac9-b540-64b52bd07c59"><br><font color="blue"> <p>MSCS Tools Apk</p></button>
-    </td>
-    </tr>
-   <tr>
-      <td><button onclick="window.location. href='pusword.genaretor.html'"><img width="100%" height="100%" src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000028887.png?alt=media&token=54d71f29-869a-49f3-90fa-abdb0573c652"> <p>PUSWORD GENARETOR </p>
-          </button>
-         
+      <td>
+        <button onclick="window.location.href='txt.to.file.html'">
+          <img height="80" width="100%" src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000028791.png?alt=media&token=af448232-7a17-46b3-967b-66a42a211fd5">
+          <p>TXT To File Generator</p>
+        </button>
       </td>
- <td>
-   <button onclick="window.location. href='bl.lone.chack.html'"><img width="100%" height="100%" src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000028916.jpg?alt=media&token=1fe88821-476d-42c0-8739-bbd8c286d182"><p> Banglalink Lone Check</p> </button>
- </td>
+      <td>
+        <button onclick="window.location.href='https://upload.app/download/mscs-tools/com.imo.free/a35cde4b45eeb28aff20f8ff71662913efe4bac1613a1733e0a32123bd0d0e88'">
+          <img height="80" width="100%" src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000028102.png?alt=media&token=c24540db-6000-4ac9-b540-64b52bd07c59">
+          <p>MSCS Tools Apk</p>
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button onclick="window.location.href='password.generator.html'">
+          <img height="80" width="100%" src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000028887.png?alt=media&token=54d71f29-869a-49f3-90fa-abdb0573c652">
+          <p>Password Generator</p>
+        </button>
+      </td>
+      <td>
+        <button onclick="window.location.href='bl.loan.check.html'">
+          <img height="80" width="100%" src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000028916.jpg?alt=media&token=1fe88821-476d-42c0-8739-bbd8c286d182">
+          <p>Banglalink Loan Check</p>
+        </button>
+      </td>
+      </tr>
+      <tr>
+      <td>
+          <button onclick="window.location.href='bl.loan.check.url.short.html'">
+          <img height="80" width="100%" src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000028107.png?alt=media&token=a2fe0562-f5da-4855-a8ad-fe77c457f713">
+          <p>URL SHORT</p>
+        </button>
+      </td>
     </tr>
   </table>
+  
+  <script>
+    function searchFunction() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const table = document.getElementById('toolsTable');
+      const rows = table.getElementsByTagName('tr');
+      
+      for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        let rowContainsSearchText = false;
+
+        for (let j = 0; j < cells.length; j++) {
+          const cellText = cells[j].innerText.toLowerCase();
+          if (cellText.includes(input)) {
+            rowContainsSearchText = true;
+            break;
+          }
+        }
+
+        rows[i].style.display = rowContainsSearchText ? '' : 'none';
+      }
+    }
+  </script>
 </body>
 </html>
