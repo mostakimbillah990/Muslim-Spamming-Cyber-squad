@@ -1,3 +1,4 @@
+
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
@@ -205,7 +206,6 @@
             <input type="text" id="phoneNumber" name="number" placeholder=" " required>
             <label for="phoneNumber">নম্বর: 019XXXXXXXX</label>
             <button type="submit">তথ্য দেখুন</button>
-            <h2> Developed By MSCS</h2>
         </form>
         <div id="response"></div>
     </div>
@@ -221,11 +221,6 @@
             const separator = document.createElement('div');
             separator.classList.add('separator');
             responseDiv.appendChild(separator);
-
-            const developerDiv = document.createElement('div');
-            developerDiv.classList.add('developer');
-            developerDiv.innerHTML = 'Developer: <a href="https://facebook.com/groups/1880145909070918/"> Mscs</a>';
-            responseDiv.appendChild(developerDiv);
         }
 
         document.getElementById('checkForm').addEventListener('submit', function(event) {
@@ -233,7 +228,6 @@
             var phoneNumber = document.getElementById('phoneNumber').value;
             var overlay = document.getElementById('overlay');
 
-            
             if (!/^019/.test(phoneNumber)) {
                 showMessage('ত্রুটি: এটি বাংলালিংক নম্বর নয়।', true);
                 return;
@@ -244,47 +238,45 @@
             overlay.classList.remove('hidden');
 
             fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                overlay.classList.add('hidden');
-                if (data.status === "SUCCESS") {
-                    const loanInfo = data.data;
+                .then(response => response.json())
+                .then(data => {
+                    overlay.classList.add('hidden');
+                    if (data.status === "SUCCESS") {
+                        const loanInfo = data.data;
 
-                 
-                    if (loanInfo.id === undefined || loanInfo.msisdn === undefined || loanInfo.due_loan === undefined || loanInfo.expires_in === undefined) {
-                        showMessage('Not:এই নাম্বারে লোন নেওয়া হয়নি।💰', true);
+                        if (!loanInfo.id || !loanInfo.msisdn || !loanInfo.due_loan || !loanInfo.expires_in) {
+                            showMessage('Not: এই নাম্বারে লোন নেওয়া হয়নি।💰', true);
+                        } else {
+                            const infoHtml = `
+                                <div class="row">
+                                    <div class="col label">আইডি:</div>
+                                    <div class="col">${loanInfo.id}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col label">ফোন নম্বর:</div>
+                                    <div class="col">${loanInfo.msisdn}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col label">বকেয়া লোন:</div>
+                                    <div class="col">${loanInfo.due_loan} টাকা</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col label">মেয়াদ শেষের তারিখ:</div>
+                                    <div class="col">${loanInfo.expires_in}</div>
+                                </div>
+                            `;
+                            document.getElementById('response').innerHTML = infoHtml;
+                        }
                     } else {
-                        const infoHtml = `
-                            <div class="row">
-                                <div class="col label">আইডি:</div>
-                                <div class="col">${loanInfo.id}</div>
-                            </div>
-                            <div class="row">
-                                <div class="col label">ফোন নম্বর:</div>
-                                <div class="col">${loanInfo.msisdn}</div>
-                            </div>
-                            <div class="row">
-                                <div class="col label">বকেয়া লোন:</div>
-                               class="col">${loanInfo.due_loan} টাকা</div>
-                                                            </div>
-                                                            <div class="row">
-                                <div class="col label">মেয়াদ শেষের তারিখ:</div>
-                                <div class="col">${loanInfo.expires_in}</div>
-                                                            </div>
-                                                        `;
-                                                        document.getElementById('response').innerHTML = infoHtml;
-                                                    }
-                                                } else {
-                                                    showMessage('ত্রুটি: তথ্য প্রদানে সমস্যা হয়েছে।', true);
-                                                }
-                                            })
-                                            .catch(error => {
-                                                overlay.classList.add('hidden');
-                                                showMessage('ত্রুটি: সার্ভারের সমস্যা রয়েছে, কিছুক্ষণ পর আবার চেষ্টা করুন।', true);
-                                                console.error('Error:', error);
-                                            });
-                                        });
-                                    </script>
-                                </body>
-                                </html>
-                                
+                        showMessage('ত্রুটি: তথ্য প্রদানে সমস্যা হয়েছে।', true);
+                    }
+                })
+                .catch(error => {
+                    overlay.classList.add('hidden');
+                    showMessage('ত্রুটি: সার্ভারের সমস্যা রয়েছে, কিছুক্ষণ পর আবার চেষ্টা করুন।', true);
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>
