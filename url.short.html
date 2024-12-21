@@ -1,0 +1,139 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener with is.gd API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            margin: 50px auto;
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        #copyButton {
+            margin-top: 10px;
+            padding: 8px 20px;
+            background-color: #17a2b8;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        #copyButton:hover {
+            background-color: #138496;
+        }
+    </style>
+</head>
+<body>
+ <center> <div class="container">
+        <h1> MSCS URL Shortener</h1>
+        <input type="text" id="urlInput" placeholder="Enter URL to shorten">
+        <button onclick="shortenUrl()">Shorten URL</button>
+        <div id="result" class="result" style="display: none;"></div>
+        <button id="copyButton" style="display: none;" onclick="copyToClipboard()">Copy Short URL</button>
+    </div>
+    </center>
+
+    <script>
+        async function shortenUrl() {
+            const urlInput = document.getElementById('urlInput').value;
+            const resultDiv = document.getElementById('result');
+            const copyButton = document.getElementById('copyButton');
+
+            if (!urlInput) {
+                alert("Please enter a URL");
+                return;
+            }
+
+            // Dryer option to clean up URL
+            const cleanedUrl = cleanUrl(urlInput);
+
+            const apiUrl = `https://is.gd/create.php?format=json&url=${encodeURIComponent(cleanedUrl)}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                // Display the result and show the copy button
+                resultDiv.style.display = "block";
+                resultDiv.innerHTML = `Shortened URL: <a href="${data.shorturl}" target="_blank">${data.shorturl}</a>`;
+                copyButton.style.display = "inline-block";
+                copyButton.setAttribute("data-clipboard-text", data.shorturl);
+            } catch (error) {
+                resultDiv.style.display = "block";
+                resultDiv.innerHTML = `Error: ${error.message}`;
+            }
+        }
+
+        function cleanUrl(url) {
+            // Clean URL by removing `www` and any unnecessary parts
+            const cleaned = url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+            return 'https://' + cleaned;
+        }
+
+        function copyToClipboard() {
+            const resultDiv = document.getElementById('result');
+            const range = document.createRange();
+            range.selectNode(resultDiv);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+
+            try {
+                document.execCommand('copy');
+                alert('Shortened URL copied to clipboard!');
+            } catch (err) {
+                alert('Failed to copy!');
+            }
+
+            window.getSelection().removeAllRanges();
+        }
+    </script>
+</body>
+</html>
