@@ -1,0 +1,107 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Locker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MSCS URL Locker</h1>
+        <p>Enter the URL you want to lock and a password to protect it.</p>
+
+        <div id="locker-section">
+            <input type="url" id="url-input" placeholder="Enter your URL" required />
+            <input type="password" id="password-input" placeholder="Enter a password" required />
+            <button onclick="lockUrl()">Lock URL</button>
+            <p class="error" id="error-message" style="display: none;">Both fields are required!</p>
+        </div>
+
+        <div id="locked-section" style="display: none;">
+            <p>Your locked URL:</p>
+            <p id="locked-url" style="word-wrap: break-word;"></p>
+            <button onclick="unlockUrl()">Unlock URL</button>
+        </div>
+
+        <div id="unlock-section" style="display: none;">
+            <p>Enter the password to unlock the URL:</p>
+            <input type="password" id="unlock-password" placeholder="Enter password" required />
+            <button onclick="verifyPassword()">Unlock</button>
+            <p class="error" id="unlock-error" style="display: none;">Incorrect password!</p>
+        </div>
+    </div>
+
+    <script>
+        let lockedUrl = "";
+        let lockedPassword = "";
+
+        function lockUrl() {
+            const urlInput = document.getElementById('url-input').value;
+            const passwordInput = document.getElementById('password-input').value;
+
+            if (urlInput && passwordInput) {
+                lockedUrl = urlInput;
+                lockedPassword = passwordInput;
+
+                // Show the locked section
+                document.getElementById('locker-section').style.display = 'none';
+                document.getElementById('locked-section').style.display = 'block';
+                document.getElementById('locked-url').textContent = lockedUrl;
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        }
+
+        function unlockUrl() {
+            // Show unlock section
+            document.getElementById('locked-section').style.display = 'none';
+            document.getElementById('unlock-section').style.display = 'block';
+        }
+
+        function verifyPassword() {
+            const unlockPassword = document.getElementById('unlock-password').value;
+
+            if (unlockPassword === lockedPassword) {
+                alert("Unlocked! Redirecting to the URL...");
+                window.open(lockedUrl, "_blank"); // Open the locked URL
+            } else {
+                document.getElementById('unlock-error').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
