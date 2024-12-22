@@ -1,17 +1,14 @@
-
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-   <style>
+    <style>
         body {
             background-color: white; /* ব্যাকগ্রাউন্ড সাদা */
             color: black; /* লেখার রঙ কালো */
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-             চারপাশে কালো বর্ডার */
             box-sizing: border-box; /* বর্ডারের জন্য অতিরিক্ত মার্জিন প্রভাবিত না হবে */
         }
         .sidebar {
@@ -42,13 +39,13 @@
             right: 25px;
             font-size: 36px;
             margin-left: 50px;
-            color: black; /* ক্লোজ বাটনের রঙ সাদা */
+            color: black; /* ক্লোজ বাটনের রঙ কালো */
         }
         .openbtn {
             font-size: 30px;
             cursor: pointer;
             background: none;
-            color: black; /* ওপেন বাটনের রঙ সাদা */
+            color: black; /* ওপেন বাটনের রঙ কালো */
             padding: 10px 15px;
             border: none;
             position: fixed;
@@ -115,46 +112,51 @@
 <!-- Sidebar -->
 <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="#about" target="_blank">MSCS কি </a>
-    <a href="#service" target="_blank">আমাদের সেবা </a>
-    <a href="#contract" target="_blank">কন্ট্রাক্ট</a>
-    <a href="mscstools.html" target="_blank">MSCS তুলস</a>
-    <a hreg="" terget="blank">_____</a>
+    <a href="#about">MSCS কি </a>
+    <a href="#service">আমাদের সেবা </a>
+    <a href="#contract">কন্ট্রাক্ট</a>
+    <a href="mscstools.html" target="_blank">MSCS টুলস</a>
+    <a href="#">_____</a>
 </div>
 
 <!-- Main content -->
 <button class="openbtn" onclick="openNav()">☰ </button>
 
-   
-    
-    <img src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000014504.png?alt=media&token=8434f546-cfd6-4bc3-a4c0-8c7c02f7c1c4" alt="মুসলিম সাইবার স্কোয়াড">
-    <marquee direction="center" behavior="scroll"> 
-        ! আস্সালামুআলাইকুম! মুসলিম স্পমিং সাইবার স্কোয়াড এর অফিসিয়াল ওয়েবসাইটে আপনাকে স্বাগতম
-    </marquee>
-    <h1 id="about">Mscs কি </h2>
-    <p>মুসলিম সাইবার স্কোয়াড একটি সোশ্যাল মিডিয়া এক্সপার্ট টিম। মুসলিম সাইবার স্কোয়াড ফেইসবুক, ইনস্টাগ্রাম, ওয়াটসাপ এবং অন্যান্য সোশ্যাল প্ল্যাটফর্মে সমস্যা সমাধান করে। এর মূল লক্ষ্য ধর্ম বিরোধী, নাস্তিক, এবং দেশদ্রোহী কার্যক্রম প্রতিরোধ করা।</p>
-    <h1 id="service">আমাদের সেবা</h2>
-    <ul type="A">
-        <li>ফেইসবুক একাউন্ট রিমোভ</li>
-        <li>ফেইসবুক বেন একাউন্ট ব্যাক</li>
-        <li>ফেইসবুক লক একাউন্ট আনলক</li>
-        <li>ফেইসবুক ব্লু ভেরিফাই</li>
-        <li>ফেইসবুক হ্যাক একাউন্ট ব্যাক</li>
-        <li>ফেইসবুক হেরেজমেন্ট প্রবলেম সলভ</li>
-        <li>বিশেষ করে কোন নাস্তিক আমাদের হাত থেকে ইনশাআল্লাহ রক্ষা পাবে না</li>
-        <li>যে কোনো একাউন্ট যেটা বাংলাদেশ এবং মুসলিমদের নিয়ে কোনো অনৈতিক কিছু শেয়ার করলে ইনশাআল্লাহ MSCS এর মেম্বারদের থেকে রক্ষা পাবে না</li>
-    </ul>
- <h1 id="contract">কন্টাক্ট </h1>
-<center> <table>
-     <tr>
-         <td> <a href="https://www.facebook.com/MSCS.PublicHelpCentre"><img width="10px" height="10px"src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000028126.png?alt=media&token=681ad440-e02d-4e41-80a8-c69a270f1d08">MSCS HELP CENTET</a></td>
-         
-     </tr>
- </table>
- </center>
- 
-   <footer>Copyright &copy; MUSLIM SPAMMING CYBER SQUAD</footer>
-</div>
+<img src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000014504.png?alt=media&token=8434f546-cfd6-4bc3-a4c0-8c7c02f7c1c4" alt="মুসলিম সাইবার স্কোয়াড">
+<marquee direction="center" behavior="scroll"> 
+    ! আস্সালামুআলাইকুম! মুসলিম স্পমিং সাইবার স্কোয়াড এর অফিসিয়াল ওয়েবসাইটে আপনাকে স্বাগতম
+</marquee>
+
+<h1 id="about">MSCS কি</h1>
+<p>মুসলিম সাইবার স্কোয়াড একটি সোশ্যাল মিডিয়া এক্সপার্ট টিম। মুসলিম সাইবার স্কোয়াড ফেইসবুক, ইনস্টাগ্রাম, ওয়াটসাপ এবং অন্যান্য সোশ্যাল প্ল্যাটফর্মে সমস্যা সমাধান করে। এর মূল লক্ষ্য ধর্ম বিরোধী, নাস্তিক, এবং দেশদ্রোহী কার্যক্রম প্রতিরোধ করা।</p>
+
+<h2 id="service">আমাদের সেবা</h2>
+<ul type="A">
+    <li>ফেইসবুক একাউন্ট রিমোভ</li>
+    <li>ফেইসবুক বেন একাউন্ট ব্যাক</li>
+    <li>ফেইসবুক লক একাউন্ট আনলক</li>
+    <li>ফেইসবুক ব্লু ভেরিফাই</li>
+    <li>ফেইসবুক হ্যাক একাউন্ট ব্যাক</li>
+    <li>ফেইসবুক হেরেজমেন্ট প্রবলেম সলভ</li>
+    <li>বিশেষ করে কোন নাস্তিক আমাদের হাত থেকে ইনশাআল্লাহ রক্ষা পাবে না</li>
+    <li>যে কোনো একাউন্ট যেটা বাংলাদেশ এবং মুসলিমদের নিয়ে কোনো অনৈতিক কিছু শেয়ার করলে ইনশাআল্লাহ MSCS এর মেম্বারদের থেকে রক্ষা পাবে না</li>
+</ul>
+
+<h2 id="contract">কন্টাক্ট</h2>
+<center> 
+    <table>
+        <tr>
+            <td> 
+                <a href="https://www.facebook.com/MSCS.PublicHelpCentre">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000028126.png?alt=media&token=681ad440-e02d-4e41-80a8-c69a270f1d08" alt="MSCS HELP CENTRE">
+                    MSCS HELP CENTRE
+                </a>
+            </td>
+        </tr>
+    </table>
+</center>
+
+<footer>Copyright &copy; MUSLIM SPAMMING CYBER SQUAD</footer>
 
 <script>
     function openNav() {
