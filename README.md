@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muslims Spamming Cyber Squad</title>
-    <style>
+    
+   <style>
         body {
             background-color: white; /* ব্যাকগ্রাউন্ড সাদা */
             color: black; /* লেখার রঙ কালো */
