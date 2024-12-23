@@ -5,60 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>রিপোর্ট এডিশন</title>
   <style>
+    /* Global Styles */
     body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f0f2f5;
       color: #333;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: #fff;
       padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
     h1 {
       text-align: center;
-      color: #007bff;
+      color: #0078D7;
+      font-size: 2rem;
       margin-bottom: 20px;
     }
-    .search-bar {
-      margin-bottom: 20px;
-    }
-    input[type="text"] {
+
+    .search-bar input[type="text"] {
       width: 100%;
-      padding: 10px;
+      padding: 15px;
       font-size: 16px;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 30px;
+      outline: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       margin-bottom: 20px;
+      transition: 0.3s ease-in-out;
     }
+
+    .search-bar input[type="text"]:focus {
+      border-color: #0078D7;
+      box-shadow: 0 2px 8px rgba(0, 120, 215, 0.3);
+    }
+
     .text-container {
-      border: 1px solid #ddd;
-      padding: 15px;
+      border: 1px solid #e6e6e6;
+      padding: 20px;
       background-color: #f9f9f9;
       font-size: 16px;
-      border-radius: 4px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .text-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .text-container h3 {
+      color: #0078D7;
       margin-bottom: 10px;
     }
+
     button {
-      padding: 10px 20px;
-      background-color: #007bff;
+      padding: 10px 15px;
+      background-color: #0078D7;
       color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 30px;
+      font-size: 16px;
       cursor: pointer;
       margin-top: 10px;
-      display: block;
+      text-align: center;
+      transition: background-color 0.3s;
       width: 100%;
     }
+
     button:hover {
-      background-color: #0056b3;
+      background-color: #005bb5;
     }
+
     .hidden {
       display: none;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #666;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -66,19 +101,88 @@
   <div class="container">
     <h1>রিপোর্ট এডিশন</h1>
 
+    <!-- Search Bar -->
     <div class="search-bar">
-      <input type="text" id="searchInput" onkeyup="filterReports()" placeholder="রিপোর্ট খুঁজুন...">
+      <input type="text" id="searchInput" onkeyup="filterReports()" placeholder="আপনার রিপোর্ট খুঁজুন...">
     </div>
 
+    <!-- Report Content -->
     <div id="reportContainer">
-      <div id="india4" class="text-container" data-name="India 4">
-        <h3>ইন্ডিয়ান গ্রিভান্স রিপোর্ট ৪</h3>
-        Hello Facebook team, <br><br>
-        I am ( Name ) reporting from Asian Development Bank. A person has opened a Facebook account with my name and picture and is asking people for various amounts of money. Harassing me by posting different pictures of me. For this I have taken the support of the police but they are not able to help me, the GD number against this account of mine 91434325. I have complained about this to you with much thought. Please disable or destroy this account as it goes against community standards. I know you will see my complaint. Will investigate the complaint and delete the account, thank you.
+      <!-- Example Report -->
+      <div id="trabox_report" class="text-container" data-name="ট্রাবক্স রিপোর্ট">
+        <h3>ট্রাবক্স রিপোর্ট</h3>
+        This is a fake person. He has uploaded my sister's private picture. He is harassing my family. Sir, I request you to check and remove it.
       </div>
-      <button onclick="copyText('india4')">কপি করুন</button>
-    </div>
+      <button onclick="copyText('trabox_report')">কপি করুন</button>
+
+      <!-- Additional Reports -->
+      <div id="phishing_site" class="text-container" data-name="ফিসিং সাইট রিপোর্ট">
+        <h3>ফিসিং সাইট রিপোর্ট</h3>
+        Dear Google Team, <br><br>
+        I am writing to bring to your attention a phishing website that I have come across. This website is attempting to deceive users by impersonating others. Please investigate and remove this phishing website to prevent harm. Thank you.
+      </div>
+      <button onclick="copyText('phishing_site')">কপি করুন</button>
+
+      <div id="facebook_copyright" class="text-container" data-name="ফেসবুক কপিরাইট এডিশন">
+        <h3>ফেসবুক কপিরাইট এডিশন</h3>
+        Someone copied a photo and article from my Facebook and uploaded it to their account without my permission. Please remove their photo.
+      </div>
+      <button onclick="copyText('facebook_copyright')">কপি করুন</button>
+      
+      <div id="i" class="text-container" data-name="ইনপোস্টার এডিশন">
+        <h3>ইনপোস্টার এডিশন</h3>
+        Hello Facebook Community,
+
+
+I don't have any facebook account but someone is using my real name ( TM NAHID) and my real  birthday (06 February  2002) to open a fake facebook account and doing various unethical things with it. He was pretending to me and blackmail me  For this I face many dangerous situation. So delete this Facebook account as soon as possible.
+
+
+      </div>
+      <button onclick="copyText('i')">কপি করুন</button>
+      
+      <div id="i1" class="text-container" data-name="ইন্ডিয়ান রিপোর্ট এডিশন">
+        <h3>ইন্ডিয়ান রিপোর্ট এডিশন</h3>
+        Hi Facebook Team. I have uploade photo to my Facebook account. But I noticed that a user copied my photos and uploaded it to his Facebook account. Which is infringed my rights without my permission. Please check this issue and see my upload date and his upload date, please review the issue and remove the reported content as soon as possible.
+
+
+      </div>
+      <button onclick="copyText('i1')">কপি করুন</button>
+      <div id="i3" class="text-container" data-name="নাম চেঞ্জ করার এডিশন">
+        <h3>৬০দিন আগে নাম চেঞ্জ করার এডিশন </h3>
+       Sir,
+
+This is my real Facebook account 
+
+Please check my document and update my account name.
+
+
+Thanks you Facebook team
+
+
+
+      </div>
+      <button onclick="copyText('i3')">কপি করুন</button>
+      
+      <div id="i4" class="text-container" data-name="পর্নের রিপোর্ট এডিশন ">
+        <h3>পর্নের রিপোর্ট এডিশন  </h3>
+      Dear Sir,
+
+This Video Harassment My Friend And Threat Her And Upload This Video & Blackmail My Friend Please sir remove the video soon as possible it is urgent please sir remove it soon as possible
+
+
+link,,  
+
+
+
+
+      </div>
+      <button onclick="copyText('i4')">কপি করুন</button>
+    
   </div>
+
+  <footer>
+    © 2024 - আপনার রিপোর্ট তৈরি করুন আরও সহজে!
+  </footer>
 
   <script>
     function copyText(elementId) {
@@ -88,28 +192,27 @@
 
       navigator.clipboard.writeText(text)
         .then(() => {
-          alert(`${textName} কপি করা হয়েছে!`);
+          alert(`${textName} সফলভাবে কপি করা হয়েছে!`);
         })
         .catch(err => {
-          alert("কপি করতে সমস্যা হয়েছে: " + err);
+          alert("কপি করতে সমস্যা হয়েছে: " + err);
         });
     }
 
     function filterReports() {
       const input = document.getElementById("searchInput");
       const filter = input.value.toLowerCase();
-      const reportContainer = document.getElementById("reportContainer");
-      const reports = reportContainer.getElementsByClassName("text-container");
+      const reports = document.getElementsByClassName("text-container");
 
       Array.from(reports).forEach(report => {
-        const title = report.getElementsByTagName("h3")[0];
-        if (title && title.innerText.toLowerCase().indexOf(filter) > -1) {
-          report.parentElement.style.display = "";
+        const title = report.getElementsByTagName("h3")[0].innerText.toLowerCase();
+        if (title.includes(filter)) {
+          report.style.display = "block";
         } else {
-          report.parentElement.style.display = "none";
+          report.style.display = "none";
         }
       });
     }
   </script>
 </body>
-  </html>
+</html>
