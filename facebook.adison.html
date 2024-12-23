@@ -1,0 +1,115 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>রিপোর্ট এডিশন</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+    .search-bar {
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    .text-container {
+      border: 1px solid #ddd;
+      padding: 15px;
+      background-color: #f9f9f9;
+      font-size: 16px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      display: block;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>রিপোর্ট এডিশন</h1>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" onkeyup="filterReports()" placeholder="রিপোর্ট খুঁজুন...">
+    </div>
+
+    <div id="reportContainer">
+      <div id="india4" class="text-container" data-name="India 4">
+        <h3>ইন্ডিয়ান গ্রিভান্স রিপোর্ট ৪</h3>
+        Hello Facebook team, <br><br>
+        I am ( Name ) reporting from Asian Development Bank. A person has opened a Facebook account with my name and picture and is asking people for various amounts of money. Harassing me by posting different pictures of me. For this I have taken the support of the police but they are not able to help me, the GD number against this account of mine 91434325. I have complained about this to you with much thought. Please disable or destroy this account as it goes against community standards. I know you will see my complaint. Will investigate the complaint and delete the account, thank you.
+      </div>
+      <button onclick="copyText('india4')">কপি করুন</button>
+    </div>
+  </div>
+
+  <script>
+    function copyText(elementId) {
+      const textContainer = document.getElementById(elementId);
+      const text = textContainer.innerText;
+      const textName = textContainer.getAttribute("data-name");
+
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          alert(`${textName} কপি করা হয়েছে!`);
+        })
+        .catch(err => {
+          alert("কপি করতে সমস্যা হয়েছে: " + err);
+        });
+    }
+
+    function filterReports() {
+      const input = document.getElementById("searchInput");
+      const filter = input.value.toLowerCase();
+      const reportContainer = document.getElementById("reportContainer");
+      const reports = reportContainer.getElementsByClassName("text-container");
+
+      Array.from(reports).forEach(report => {
+        const title = report.getElementsByTagName("h3")[0];
+        if (title && title.innerText.toLowerCase().indexOf(filter) > -1) {
+          report.parentElement.style.display = "";
+        } else {
+          report.parentElement.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+  </html>
