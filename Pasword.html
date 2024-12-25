@@ -1,0 +1,36 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Page</title>
+    <script>
+        function checkPassword() {
+            const correctPassword = "200569"; // এখানে আপনার পাসওয়ার্ড
+            const userPassword = document.getElementById("password").value;
+            
+            if (userPassword === correctPassword) {
+                // সঠিক পাসওয়ার্ড হলে নতুন পেজে রিডাইরেক্ট করবে
+                window.location.href = "expert.class.html"; // এখানে নতুন পেজের নাম দিন
+            } else {
+                alert("ভুল পাসওয়ার্ড! আবার চেষ্টা করুন।");
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="password-form">
+        <h1>EXPERTS </h1>
+        <p>পাসওয়ার্ড প্রবেশ করান।</p>
+        <input type="password" id="password" placeholder="পাসওয়ার্ড দিন">
+        <button onclick="checkPassword()">সাবমিট</button>
+    </div>
+</body>
+</html>
