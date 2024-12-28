@@ -1,0 +1,183 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>লাইব্রেরি সার্চ সিস্টেম</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .search-container {
+      margin-bottom: 20px;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    .library {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      width: 80%;
+      max-width: 800px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      text-align: center;
+      width: 220px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .card a {
+      text-decoration: none;
+      color: #ff7e5f;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .card a:hover {
+      color: #feb47b;
+    }
+  </style>
+</head>
+<body>
+  <h1>লাইব্রেরি</h1>
+  <div class="search-container">
+    <input type="text" id="searchBar" placeholder="নাম, লেখক বা বিষয় দিয়ে খুঁজুন...">
+  </div>
+  <div class="library" id="library">
+    <!-- কার্ডগুলো ডায়নামিক্যালি জেনারেট হবে -->
+  </div>
+
+  <script>
+    // লাইব্রেরি ডেটা
+    const libraryItems = [
+      { 
+        book: 'আমার ঘুম আমার ইবাদত ', 
+        author: 'আহামদ সাব্বির', 
+        genre: 'ইসলামিক', 
+        image: 'https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000030909.jpg?alt=media&token=5a5c3a36-403a-40e4-96b1-6d5589c10c5a', 
+        link: 'https://drive.google.com/file/d/18Kwp8lD_29PxcRn8ssaTDgV98fFRN42M/view?usp=drivesdk' 
+      },
+      { 
+        book: 'হে_যুবক_আজ_তবে_ফেরা_হোক_নিড়ে', 
+        author: 'শায়েখ সালমান বিন ফাহাদ', 
+        genre: 'ইসলামিক', 
+        image: 'https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000030910.jpg?alt=media&token=e1d86650-607b-4dd8-b4f9-babc978966ac0b29c5', 
+        link: 'https://drive.google.com/file/d/18N1AV1NwIGXuqz7VVt26NGJqE63ZRE3r/view?usp=drivesdk' 
+      },
+      { 
+        book: 'এখনই ফিরে এসো', 
+        author: 'ডক্টর মোহাম্মদ ইবনে আব্দুর রহমান আরেফি', 
+        genre: 'ইসলামিক ', 
+        image: 'https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000030913.jpg?alt=media&token=975c6ecc-b3af-4628-8aad-3bfd3ab22090', 
+        link: 'https://drive.google.com/file/d/18ODbe7k6LsUk3XY9MsEpGUw9UaFylpEZ/view?usp=drivesdk' 
+      },
+      { 
+        book: 'অ্যান্টিডোট', 
+        author: 'আশরাফুল আলম শফিক', 
+        genre: 'ইসলামিক', 
+        image: 'https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000030915.jpg?alt=media&token=5ea04afd-21de-4a0f-acc6-3b95844bbee0', 
+        link: 'https://drive.google.com/file/d/18SbnY3v5mLiUXuww3O-WWHfUmMVeoGFF/view?usp=drivesdk' 
+      }
+      { 
+        book: 'আমাদের সোনালী অতীত', 
+        author: 'ডক্টর মোহাম্মদ ইবনে <br>আব্দুর রহমান আরেফি', 
+        genre: 'ইসলামিক', 
+        image: 'https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000030917.jpg?alt=media&token=26dfae99-10b8-475c-8737-6e676697ac83', 
+        link: 'https://drive.google.com/file/d/18bP2FgsDRtI2XZNINVHisCI6jYvq_NDs/view?usp=drivesdk' 
+    }
+    { 
+        book: 'আধুনিক_কালের_বিচ্যুতি_ও_বিভ্রান্তি.', 
+        author: 'মাওলানা ইমরান রাইহান', 
+        genre: 'ইসলামিক', 
+        image: 'https://firebasestorage.googleapis.com/v0/b/smm-penel-be4bc.appspot.com/o/image%2F1000030919.jpg?alt=media&token=5feb663a-883e-4fe1-ab60-4871b240040a', 
+        link: 'https://drive.google.com/file/d/18pFO2im_tIiDD5vpkWQDi-764gHOIDTK/view?usp=drivesdk' 
+    }
+    ];
+
+    const library = document.getElementById('library');
+    const searchBar = document.getElementById('searchBar');
+
+    // ডেটা প্রদর্শনের ফাংশন
+    function displayItems(items) {
+      library.innerHTML = '';
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${item.image}" alt="${item.book}">
+          <h3>${item.book}</h3>
+          <p><strong>লেখক:</strong> ${item.author}</p>
+          <p><strong>বিষয়:</strong> ${item.genre}</p>
+          <a href="${item.link}" target="_blank">বিস্তারিত দেখুন</a>
+        `;
+        library.appendChild(card);
+      });
+    }
+
+    // শুরুতে সব দেখানো
+    displayItems(libraryItems);
+
+    // সার্চ ফাংশনালিটি
+    searchBar.addEventListener('input', () => {
+      const searchText = searchBar.value.toLowerCase();
+      const filteredItems = libraryItems.filter(item => 
+        item.book.toLowerCase().includes(searchText) ||
+        item.author.toLowerCase().includes(searchText) ||
+        item.genre.toLowerCase().includes(searchText)
+      );
+      displayItems(filteredItems);
+    });
+  </script>
+</body>
+</html>
