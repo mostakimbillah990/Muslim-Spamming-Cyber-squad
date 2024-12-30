@@ -116,7 +116,9 @@
     <a href="#service">আমাদের সেবা </a>
     <a href="#contract">কন্ট্রাক্ট</a>
     <a href="mscstools.html" target="_blank">MSCS টুলস</a>
-    <a href="Pasword.html">_____</a>
+  
+   <a href="crew.admison.html"> অ্যাডমিশন </a>
+   <a href="Pasword.html">_____</a>
 </div>
 
 <!-- Main content -->
